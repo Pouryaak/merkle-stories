@@ -9,3 +9,9 @@
     width: 300px;
   }
 }
+
+@media screen and (max-width: $tabletScreen) {
+  .logo {
+    zoom: 0.7;
+  }
+}

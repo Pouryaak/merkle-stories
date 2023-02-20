@@ -1,10 +1,38 @@
 @import "@/theme/_variables.scss";
 
+@font-face {
+  font-family: "Proxima";
+  src: url(./assets/fonts/proxima.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Proxima";
+  src: url(./assets/fonts/proxima-semiBold.ttf) format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Proxima";
+  src: url(./assets/fonts/proxima-bold.ttf) format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Proxima";
+  src: url(./assets/fonts/proxima-black.ttf) format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
 body {
   margin: 0;
   background-color: $backgroundColor;
+  font-family: Proxima;
 }
 .app {
   max-width: $maxWidth;
-  margin: 0;
+  margin: 0 auto !important;
+  float: none !important;
+  padding: 20px 20px;
 }

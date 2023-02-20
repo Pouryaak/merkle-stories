@@ -1,4 +1,10 @@
 $primary: #12295d;
 $secondary: #f23a1d;
 $backgroundColor: #eaeaea;
-$maxWidth: 1280px;
+$maxWidth: 1080px;
+
+// Break Points
+$mobileScreen: 480px;
+$tabletScreen: 768px;
+$laptopScreen: 1024px;
+$largeScreen: 1200px;
