@@ -1,0 +1,10 @@
+@import "@/theme/_variables.scss";
+
+body {
+  margin: 0;
+  background-color: $backgroundColor;
+}
+.app {
+  max-width: $maxWidth;
+  margin: 0;
+}
