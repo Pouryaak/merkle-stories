@@ -1,0 +1,11 @@
+@import "@/theme/_variables.scss";
+
+.chip {
+  border-radius: 7px;
+  background-color: $secondary;
+  padding: 5px;
+  color: white;
+  width: fit-content;
+  font-weight: 500;
+  font-size: 10px;
+}
