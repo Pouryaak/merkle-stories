@@ -3,5 +3,10 @@
   align-items: center;
 }
 .item {
-  margin: 2px;
+  margin: 4px;
+}
+
+.item.content {
+  font-size: 14px;
+  font-style: italic;
 }
