@@ -9,7 +9,7 @@ const Home = () => {
     <div>
       <StoriesHero />
       <Tabs
-        header="Categorized Stories"
+        header="Sorted Stories"
         tabs={[
           {
             title: "Highest Scores",
