@@ -11,7 +11,7 @@ const StoriesList: React.FC<StoriesListProps> = ({ stories }) => {
   return (
     <div className={styles.container}>
       {stories.map((item) => (
-        <div key={item.id} className={styles.item}>
+        <div key={item.id + Math.random()} className={styles.item}>
           <StoryCard />
         </div>
       ))}
