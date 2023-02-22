@@ -23,5 +23,3 @@ export type Author = {
 export interface StoryWithAuthor extends Story {
     author: Author
 }
-
-export type StoryFetchTypes = "getAll" | "getOne" | "getAuthor";
