@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import EmptyStories from "../Stories/StoriesList/EmptyStories";
 import styles from "./Masonry.module.scss";
 
 interface Props {
@@ -6,12 +7,7 @@ interface Props {
 }
 
 const Masonry: React.FC<Props> = ({ children }: Props) => {
-  // const columns: ReactNode[][] = [[], [], []];
-
-  // children.forEach((child, index) => {
-  //   columns[index % 3].push(child);
-  // });
-
+  if (!children.length) return <EmptyStories />;
   return (
     <div className={styles.wrapper}>
       <div className={styles.left}>{children[0]}</div>

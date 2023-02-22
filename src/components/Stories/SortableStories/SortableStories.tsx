@@ -18,7 +18,7 @@ const SortableStories = () => {
       <Section title="Sorted Stories" />
       <SortingButtons
         sorts={[
-          { label: "Highest Scores", value: Sort.SCORE },
+          { label: "Score: Low to High", value: Sort.SCORE },
           { label: "Latest", value: Sort.TIMESTAMP },
         ]}
         activeSorting={activeSorting}
