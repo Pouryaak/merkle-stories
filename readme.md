@@ -4,9 +4,13 @@
 
 MStories is a simple website which it utilize the [Hacker News API](https://github.com/HackerNews/API) to fetch and list the stories. It enables you to see the latest 3 uploaded stories, and it also lets you to sort 10 random stories based on the Story Score or Story timestamp (latest stories).
 
-### Tech Stack
+### Tech and Libraries used
 
-This project is using React / TypeScript as the main framework. It's using Eslint/Prettier to maintain a standard pattern throughout the app. It is bundled using Vite and it uses React SCSS Module to do the styling.
+- React / TypeScript
+- React SCSS Module
+- Vite
+- ESLint / Prettier
+- react-share (To share the stories)
 
 ## Installation
 
