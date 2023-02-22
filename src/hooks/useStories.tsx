@@ -1,43 +1,43 @@
-import { useEffect, useReducer, useRef, useState } from "react";
-import { StoryFetchTypes } from "@/types/Story";
+import { useEffect, useRef, useState } from "react";
+import { StoryWithAuthor } from "@/types/Story";
+import { getFullStoriesWithAuthors } from "@/services/Story.service";
+import { Sort } from "@/types/Sort";
 
-interface State<T> {
-  items?: T | null;
+interface State {
+  items?: StoryWithAuthor[];
   loading: boolean;
   error?: Error;
 }
 
-type Cache<T> = { [type: string]: T };
-
-const useStories = <T extends unknown>(
-  type: StoryFetchTypes,
-  fetcher: () => Promise<T>
-): State<T> => {
-  const cache = useRef<Cache<T>>({});
+const useStories = (activeSorting: Sort): State => {
+  const cache = useRef<StoryWithAuthor[] | null>(null);
+  const cacheExpiry = useRef<number | null>(null);
+  const cacheDuration = 60000;
   const cancelRequest = useRef<boolean>(false);
-  const [items, setItems] = useState<T | null>(null);
+  const [items, setItems] = useState<StoryWithAuthor[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error | undefined>(undefined);
-
   useEffect(() => {
-    if (!type) return;
-
     cancelRequest.current = false;
 
     const fetchData = async () => {
       setLoading(true);
 
-      if (cache.current[type]) {
-        setItems(cache.current[type]);
+      if (
+        cache.current &&
+        cacheExpiry.current &&
+        Date.now() - cacheExpiry.current < cacheDuration
+      ) {
+        setItems(cache.current);
         setLoading(false);
-
         return;
       }
 
       try {
-        const data = await fetcher();
+        const data = await getFullStoriesWithAuthors();
 
-        cache.current[type] = data;
+        cache.current = data;
+        cacheExpiry.current = Date.now();
         if (cancelRequest.current) return;
         setItems(data);
       } catch (error) {
@@ -54,10 +54,9 @@ const useStories = <T extends unknown>(
     return () => {
       cancelRequest.current = true;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [type]);
+    // eslint-disable-next-line
+  }, [activeSorting]);
 
   return { items, loading, error };
 };
-
 export default useStories;

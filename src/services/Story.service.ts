@@ -1,5 +1,5 @@
 import { API_BATCH_SIZE, URLS } from "@/constants";
-import { Author, Story, StoryList } from "@/types/Story";
+import { Author, Story, StoryList, StoryWithAuthor } from "@/types/Story";
 import * as API from "./Api.service";
 import { handleError } from "./ErrorHandler.service";
 
@@ -30,16 +30,16 @@ export async function getAuthorById(id: string): Promise<Author | undefined> {
     }
 }
 
-export async function getFullStories() {
+export async function getFullStoriesWithAuthors() {
     const data = await getStories();
-    let stories: any[] = [];
+    const storiesWithAuthors: StoryWithAuthor[] = [];
     if (data) {
-        stories = await Promise.all(
-            data.map(async (id) => {
-                const storyResponse = await getStoryById(id)
-                return storyResponse
-            })
-        );
+        for (let index = 0; index < data.length; index++) {
+            const storyId = data[index];
+            const storyDetail = await getStoryById(storyId);
+            const author = await getAuthorById(storyDetail!.by);
+            if (author && storyDetail) storiesWithAuthors.push({ ...storyDetail, author });
+        }
     }
-    return stories;
+    return storiesWithAuthors;
 }

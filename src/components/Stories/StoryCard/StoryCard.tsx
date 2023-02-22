@@ -10,15 +10,14 @@ import {
   BsFillShareFill,
   BsPersonFill,
 } from "react-icons/bs";
-import { Story } from "@/types/Story";
+import { StoryWithAuthor } from "@/types/Story";
 import { convertTimestampToDataString } from "@/utils";
 
 interface StoryCardProps {
-  story: Story;
+  story: StoryWithAuthor;
 }
 
 const StoryCard: React.FC<StoryCardProps> = ({ story }) => {
-  if (!story) return null;
   return (
     <div
       className={styles.card}
@@ -38,7 +37,11 @@ const StoryCard: React.FC<StoryCardProps> = ({ story }) => {
           content={`${convertTimestampToDataString(story.time)}`}
         />
         <div className={`flex ${styles.action}`}>
-          <IconItem Icon={BsPersonFill} content={`${story.by} (karma: 56)`} />
+          <IconItem
+            Icon={BsPersonFill}
+            content={`${story.by}`}
+            secondLine={`(karma: ${story.author.karma})`}
+          />
           <Button
             title="Read More"
             onClick={() => window.open(story.url, "_blank")}

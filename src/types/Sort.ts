@@ -1,4 +1,4 @@
 export enum Sort {
-    SCORE = "SCORE",
-    TIMESTAMP = "TIMESTAMP"
+    SCORE = "score",
+    TIMESTAMP = "time"
 }
