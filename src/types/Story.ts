@@ -19,3 +19,5 @@ export type Author = {
     karma: number;
     submitted: number[];
 }
+
+export type StoryFetchTypes = "getAll" | "getOne" | "getAuthor";

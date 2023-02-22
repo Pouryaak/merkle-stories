@@ -8,11 +8,11 @@ const StoriesHero = () => {
   return (
     <div className={styles.container}>
       <Section title="Recent Stories" />
-      <Masonry>
+      {/* <Masonry>
         <StoryCard />
         <StoryCard />
         <StoryCard />
-      </Masonry>
+      </Masonry> */}
     </div>
   );
 };

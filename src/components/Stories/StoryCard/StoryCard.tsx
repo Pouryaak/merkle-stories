@@ -10,8 +10,15 @@ import {
   BsFillShareFill,
   BsPersonFill,
 } from "react-icons/bs";
+import { Story } from "@/types/Story";
+import { convertTimestampToDataString } from "@/utils";
 
-const StoryCard = () => {
+interface StoryCardProps {
+  story: Story;
+}
+
+const StoryCard: React.FC<StoryCardProps> = ({ story }) => {
+  if (!story) return null;
   return (
     <div
       className={styles.card}
@@ -20,19 +27,22 @@ const StoryCard = () => {
       }}
     >
       <div className="flex">
-        <Chip content="Score: 5" />
+        <Chip content={`Score: ${story.score}`} />
         <IconItem Icon={BsFillShareFill} content="" />
       </div>
 
       <div className={styles["card__content"]}>
-        <h4>
-          Show HN: Turn Your Pandas Dataframe into a Tableau-Style UI for Visual
-          Analysis
-        </h4>
-        <IconItem Icon={BsFillCalendar2WeekFill} content="23/4/2023" />
+        <h4>{story.title}</h4>
+        <IconItem
+          Icon={BsFillCalendar2WeekFill}
+          content={`${convertTimestampToDataString(story.time)}`}
+        />
         <div className={`flex ${styles.action}`}>
-          <IconItem Icon={BsPersonFill} content="Pourya (karma: 56)" />
-          <Button title="Read More" onClick={() => {}} />
+          <IconItem Icon={BsPersonFill} content={`${story.by} (karma: 56)`} />
+          <Button
+            title="Read More"
+            onClick={() => window.open(story.url, "_blank")}
+          />
         </div>
       </div>
     </div>
