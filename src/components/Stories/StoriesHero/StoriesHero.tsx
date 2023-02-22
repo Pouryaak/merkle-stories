@@ -15,12 +15,13 @@ const StoriesHero = () => {
     <div className={styles.container}>
       <Section title="Recent Stories" />
       {loading && <Loader />}
-      <Masonry>
-        {!loading &&
-          sortedItems
-            .slice(0, 3)
-            .map((item) => <StoryCard key={item.id} story={item} />)}
-      </Masonry>
+      {!loading && (
+        <Masonry>
+          {sortedItems.slice(0, 3).map((item) => (
+            <StoryCard key={item.id} story={item} />
+          ))}
+        </Masonry>
+      )}
     </div>
   );
 };

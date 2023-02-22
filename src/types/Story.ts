@@ -21,5 +21,6 @@ export type Author = {
 }
 
 export interface StoryWithAuthor extends Story {
-    author: Author
+    author: Author;
+    image?: string;
 }

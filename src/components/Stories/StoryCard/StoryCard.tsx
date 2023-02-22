@@ -1,5 +1,4 @@
 import React from "react";
-import img1 from "@/assets/images/img1.jpeg";
 import IconItem from "./IconItem";
 import Button from "@/components/Button";
 import Chip from "@/components/Chip";
@@ -23,7 +22,7 @@ const StoryCard: React.FC<StoryCardProps> = ({ story }) => {
     <div
       className={styles.card}
       style={{
-        backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${img1}')`,
+        backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${story.image}')`,
       }}
     >
       <div className="flex">

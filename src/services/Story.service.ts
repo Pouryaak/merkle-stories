@@ -38,7 +38,8 @@ export async function getFullStoriesWithAuthors() {
             const storyId = data[index];
             const storyDetail = await getStoryById(storyId);
             const author = await getAuthorById(storyDetail!.by);
-            if (author && storyDetail) storiesWithAuthors.push({ ...storyDetail, author });
+            const num = Math.floor(Math.random() * 6) + 1;
+            if (author && storyDetail) storiesWithAuthors.push({ ...storyDetail, author, image: `/src/assets/images/img${num}.jpeg` });
         }
     }
     return storiesWithAuthors;
