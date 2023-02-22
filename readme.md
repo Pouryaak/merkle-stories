@@ -6,11 +6,11 @@ MStories is a simple website which it utilize the [Hacker News API](https://gith
 
 ### Tech and Libraries used
 
-- React / TypeScript
-- React SCSS Module
-- Vite
-- ESLint / Prettier
-- react-share (To share the stories)
+- 🌐 React / TypeScript
+- 🖌 React SCSS Module
+- 🛠 Vite
+- 🩺 ESLint / Prettier
+- 📲 react-share (To share the stories)
 
 ## Installation
 
