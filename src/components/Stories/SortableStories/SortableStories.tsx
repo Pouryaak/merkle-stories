@@ -11,7 +11,7 @@ const SortableStories = () => {
   const [activeSorting, setActiveSorting] = useState<Sort>(Sort.SCORE);
   const { items, loading, error } = useStories(activeSorting);
   const sortedItems = sortStories(items ? items : [], activeSorting);
-  console.log(items);
+
   if (error) return <div>Error</div>;
   return (
     <div>

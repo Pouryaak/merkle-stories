@@ -2,15 +2,15 @@ import React, { ReactNode } from "react";
 import styles from "./Masonry.module.scss";
 
 interface Props {
-  children: [ReactNode, ReactNode, ReactNode];
+  children: any;
 }
 
 const Masonry: React.FC<Props> = ({ children }: Props) => {
-  const columns: ReactNode[][] = [[], [], []];
+  // const columns: ReactNode[][] = [[], [], []];
 
-  children.forEach((child, index) => {
-    columns[index % 3].push(child);
-  });
+  // children.forEach((child, index) => {
+  //   columns[index % 3].push(child);
+  // });
 
   return (
     <div className={styles.wrapper}>

@@ -10,14 +10,13 @@ export function convertTimestampToDataString(timestamp: number) {
     const year = date.getFullYear();
     return `${day}/${month}/${year}`;
 }
-
-// export function sortByScore(stories: StoryWithAuthor[]) {
-//     return stories.sort((a, b) => a.score - b.score);
-// }
-// export function sortByTimestamp(stories: StoryWithAuthor[]) {
-//     return stories.sort((a, b) => b.time - a.time);
-// }
-
-export function sortStories(stories: StoryWithAuthor[], sortBy: Sort) {
-    return stories.sort((a, b) => a[sortBy] - b[sortBy]);
+export function sortStories(stories: StoryWithAuthor[], sortBy: Sort = Sort.TIMESTAMP) {
+    switch (sortBy) {
+        case Sort.SCORE:
+            return stories.sort((a, b) => a.score - b.score);
+        case Sort.TIMESTAMP:
+            return stories.sort((a, b) => b.time - a.time);
+        default:
+            return stories.sort((a, b) => b.time - a.time);
+    }
 }
