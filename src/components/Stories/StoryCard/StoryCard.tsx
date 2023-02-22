@@ -12,6 +12,7 @@ import {
 } from "react-icons/bs";
 import { StoryWithAuthor } from "@/types/Story";
 import { convertTimestampToDataString } from "@/utils";
+import ShareButton from "@/components/ShareButton";
 
 interface StoryCardProps {
   story: StoryWithAuthor;
@@ -27,7 +28,8 @@ const StoryCard: React.FC<StoryCardProps> = ({ story }) => {
     >
       <div className="flex">
         <Chip content={`Score: ${story.score}`} />
-        <IconItem Icon={BsFillShareFill} content="" />
+        {/* <IconItem Icon={BsFillShareFill} content="" /> */}
+        <ShareButton title={story.title} url={story.url ? story.url : ""} />
       </div>
 
       <div className={styles["card__content"]}>

@@ -1,0 +1,40 @@
+.dropdown {
+  position: relative;
+}
+
+.shareButton {
+  background-color: white;
+  border: none;
+  padding: 6px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.menu {
+  position: absolute;
+  background-color: white;
+  z-index: 99;
+  visibility: hidden;
+  opacity: 0;
+  color: black;
+  list-style-type: none;
+  margin: 5px 0;
+  padding: 5px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+
+  & div {
+    margin: 2px 0px;
+  }
+
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+  &.open {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0);
+  }
+
+  transform: translateY(-20px);
+}
