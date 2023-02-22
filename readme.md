@@ -28,7 +28,7 @@ npm run dev
 
 ## Description
 
-The app is implementing data fetching by utilizing a custom hook called useStories. The useStories hook has been developed with performance optimization in mind, and it includes a basic caching strategy that prevents redundant fetching if the data was retrieved within the last minute. While this strategy is functional, there are more efficient and scalable methods of caching data, such as implementing third-party libraries like react-query.
+The app is implementing data fetching by utilizing a custom hook called useStories. The useStories hook has been developed with performance optimization in mind, and it includes a basic caching strategy that prevents redundant fetching if the data was retrieved within the last minute. While this strategy is functional, there are more efficient and scalable methods of caching data, batching requests, pagination and ..., such as implementing third-party libraries like react-query, SWR and etc.
 
 ### Color Reference
 
