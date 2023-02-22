@@ -8,7 +8,11 @@ export function convertTimestampToDataString(timestamp: number) {
     const day = date.getDate().toString().padStart(2, '0');
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
     const year = date.getFullYear();
-    return `${day}/${month}/${year}`;
+    const hour = date.getHours().toString().padStart(2, '0');
+    const minute = date.getMinutes().toString().padStart(2, '0');
+
+    const formattedDate = `${day}/${month}/${year} ${hour}:${minute}`;
+    return formattedDate;
 }
 export function sortStories(stories: StoryWithAuthor[], sortBy: Sort = Sort.TIMESTAMP) {
     switch (sortBy) {
