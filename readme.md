@@ -1,6 +1,8 @@
+![Logo](https://i.postimg.cc/Jtwh5B8X/Merkle-Logo-Blue-svg-svg.jpg)
+
 # MStories
 
-MStories is a simple website which it utilize the [Hacker News API](https://github.com/HackerNews/API) to fetch and list the stories.
+MStories is a simple website which it utilize the [Hacker News API](https://github.com/HackerNews/API) to fetch and list the stories. It enables you to see the latest 3 uploaded stories, and it also lets you to sort 10 random stories based on the Story Score or Story timestamp (latest stories).
 
 ### Tech Stack
 
